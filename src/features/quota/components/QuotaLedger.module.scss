@@ -1,0 +1,371 @@
+@use '../../../styles/variables' as *;
+
+.ledger {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  min-width: 0;
+}
+.summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr));
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  overflow: hidden;
+  background: var(--bg-primary);
+}
+.summaryCell {
+  padding: 16px;
+  min-width: 0;
+  border-inline-end: 1px solid var(--border-color);
+}
+.summaryCell:last-child {
+  border-inline-end: 0;
+}
+.summaryHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+.summaryHead h2 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  font-size: 13px;
+  font-weight: 650;
+}
+.summaryHead img {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+}
+.summaryHead > span,
+.summaryLabel {
+  color: var(--text-tertiary);
+  font-size: 12px;
+  line-height: 1.4;
+}
+.summaryValue {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 5px 0 10px;
+  font-variant-numeric: tabular-nums;
+}
+.summaryValue > strong {
+  font-size: 27px;
+  font-weight: 650;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+}
+.summaryValue > span {
+  color: var(--text-tertiary);
+  font-size: 12px;
+}
+.segments {
+  display: flex;
+  gap: 3px;
+  margin-bottom: 11px;
+}
+.segment,
+.track {
+  height: 4px;
+  border-radius: 99px;
+  background: var(--bg-tertiary);
+  overflow: hidden;
+}
+.segment {
+  flex: 1;
+  min-width: 0;
+}
+.segment > span,
+.track > span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+}
+.high {
+  background: #16b58a;
+}
+.medium {
+  background: #f1cf60;
+}
+.low {
+  background: #d95649;
+}
+.unknown {
+  background: transparent;
+}
+.resetTime {
+  color: var(--text-tertiary);
+  font-size: 12px;
+  line-height: 1.6;
+  font-variant-numeric: tabular-nums;
+}
+.summarySecondary {
+  border-top: 1px solid var(--border-color);
+  padding-top: 8px;
+  margin-top: 10px;
+  color: var(--text-tertiary);
+  font-size: 12px;
+}
+.secondaryHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+.secondaryHead strong {
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-left: 3px;
+}
+.secondaryHead button {
+  background: transparent;
+  border: 0;
+  color: var(--text-tertiary);
+  padding: 3px 0 3px 8px;
+  cursor: pointer;
+  font: inherit;
+}
+.secondaryDetails {
+  margin-top: 12px;
+}
+.groups {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+.group {
+  min-width: 0;
+}
+.groupTitle {
+  display: flex;
+  align-items: baseline;
+  gap: 9px;
+  font-size: 13px;
+  font-weight: 650;
+  margin: 0 0 2px;
+}
+.groupTitle > span {
+  font-weight: 400;
+  color: var(--text-tertiary);
+}
+.accountRow {
+  display: grid;
+  grid-template-columns: minmax(180px, 1.5fr) minmax(0, 3fr) auto;
+  align-items: center;
+  gap: 22px;
+  padding: 16px 0;
+  border-bottom: 1px solid color-mix(in srgb, var(--border-color) 65%, transparent);
+  min-width: 0;
+}
+.accountRow:last-child {
+  border-bottom: 0;
+}
+.identity {
+  min-width: 0;
+}
+.identity h3 {
+  font-family: $font-mono;
+  font-size: 13px;
+  font-weight: 650;
+  line-height: 1.5;
+  margin: 0 0 4px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.plan {
+  color: var(--text-tertiary);
+  font-size: 12px;
+  line-height: 1.6;
+}
+.plan strong {
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 145px), 1fr));
+  gap: 16px 22px;
+  min-width: 0;
+  align-items: start;
+}
+.window {
+  min-width: 0;
+}
+.windowHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-bottom: 7px;
+}
+.windowHead > span {
+  min-width: 0;
+}
+.windowHead strong {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-primary);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+.track {
+  margin-bottom: 5px;
+}
+.manualResets {
+  color: var(--text-secondary);
+  font-size: 12px;
+  min-width: 0;
+}
+.available {
+  margin: 7px 0 2px;
+}
+.available strong {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-right: 5px;
+}
+.creditExpiry {
+  color: var(--text-tertiary);
+  line-height: 1.6;
+}
+.creditExpiries {
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.claudeActions {
+  flex-direction: column;
+  align-items: flex-end;
+}
+.providerBody {
+  grid-column: 1 / -1;
+  min-width: 0;
+}
+.rowActions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 4px 12px;
+  max-width: 210px;
+}
+.rowActions button {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  border: 0;
+  padding: 6px 0;
+  background: transparent;
+  color: var(--text-tertiary);
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 500;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.rowActions button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+.rowActions button:focus-visible,
+.secondaryHead button:focus-visible {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 4px;
+  border-radius: 3px;
+}
+.status {
+  color: var(--text-tertiary);
+  font-size: 12px;
+  line-height: 1.6;
+  grid-column: 1 / -1;
+}
+.error {
+  color: var(--danger-color);
+  font-size: 12px;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+  grid-column: 1 / -1;
+}
+.spinning {
+  animation: ledger-spin 0.8s linear infinite;
+}
+@keyframes ledger-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@media (hover: hover) and (pointer: fine) {
+  .rowActions button:hover:not(:disabled),
+  .secondaryHead button:hover {
+    color: var(--text-primary);
+  }
+}
+@media (max-width: 1200px) {
+  .accountRow {
+    grid-template-columns: minmax(180px, 1fr) minmax(0, 2.2fr);
+    gap: 14px 20px;
+  }
+  .rowActions {
+    grid-column: 2;
+    max-width: none;
+  }
+}
+@media (max-width: 768px) {
+  .creditExpiries {
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+  .claudeActions {
+    flex-direction: row;
+    align-items: center;
+  }
+  .summary {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 210px), 1fr));
+  }
+  .summaryCell {
+    border-bottom: 1px solid var(--border-color);
+  }
+  .summaryCell:last-child {
+    border-bottom: 0;
+  }
+  .accountRow {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    padding: 18px 0;
+  }
+  .identity h3 {
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+  .metrics {
+    gap: 16px;
+  }
+  .rowActions {
+    grid-column: 1;
+  }
+  .rowActions button,
+  .secondaryHead button {
+    min-height: 44px;
+    padding: 8px;
+  }
+  .ledger {
+    gap: 24px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .spinning {
+    animation: none;
+  }
+}

@@ -10,6 +10,8 @@ export type QuotaHeaderProps = {
   refreshing: boolean;
   disableControls: boolean;
   onRefreshAll: () => void;
+  showEmails?: boolean;
+  onToggleEmails?: () => void;
 };
 
 /**
@@ -55,6 +57,16 @@ export function QuotaHeader(props: QuotaHeaderProps) {
         </p>
       </div>
       <div className={styles.actions} data-reveal>
+        {props.onToggleEmails && (
+          <button
+            type="button"
+            className={styles.secondaryAction}
+            onClick={props.onToggleEmails}
+            aria-pressed={props.showEmails}
+          >
+            {t(`quota_management.${props.showEmails ? 'hide_emails' : 'show_emails'}`)}
+          </button>
+        )}
         <button
           type="button"
           className={styles.primaryAction}

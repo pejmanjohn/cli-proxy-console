@@ -81,6 +81,31 @@
   flex-shrink: 0;
 }
 
+.secondaryAction {
+  border: 1px solid var(--border-color);
+  border-radius: $radius-full;
+  padding: 10px 14px;
+  background: transparent;
+  color: var(--text-secondary);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1;
+  cursor: pointer;
+
+  &:focus-visible {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .secondaryAction:hover {
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+  }
+}
+
 /* 墨色药丸主按钮（深色主题自动反相） */
 .primaryAction {
   display: inline-flex;
@@ -141,6 +166,12 @@
 
   .actions {
     justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .primaryAction,
+  .secondaryAction {
+    min-height: 44px;
   }
 }
 

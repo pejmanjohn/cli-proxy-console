@@ -9,6 +9,8 @@ import {
 export type QuotaUiState = {
   tab?: QuotaTabId;
   sortMode?: QuotaSortMode;
+  viewMode?: 'ledger' | 'cards';
+  showEmails?: boolean;
 };
 
 const QUOTA_UI_STATE_KEY = 'quotaPage.uiState';
@@ -32,6 +34,10 @@ export const readQuotaUiState = (): QuotaUiState | null => {
     return {
       tab: isQuotaTabId(parsed.tab) ? parsed.tab : undefined,
       sortMode: isQuotaSortMode(parsed.sortMode) ? parsed.sortMode : undefined,
+      ...(parsed.viewMode === 'ledger' || parsed.viewMode === 'cards'
+        ? { viewMode: parsed.viewMode }
+        : {}),
+      ...(typeof parsed.showEmails === 'boolean' ? { showEmails: parsed.showEmails } : {}),
     };
   } catch {
     return null;
