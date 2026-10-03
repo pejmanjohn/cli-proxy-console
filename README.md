@@ -1,3 +1,5 @@
+> Maintained fork: this console adds the screenshot-inspired quota Ledger. See [FORK.md](FORK.md) for development, installation, updates, and rollback.
+
 <div align="center">
 
 <img src="./logo.jpg" alt="CLI Proxy API" width="144">

@@ -46,6 +46,23 @@ afterAll(() => {
 });
 
 describe('quota ui state', () => {
+  test('retains layout and privacy preferences while other controls update', () => {
+    writeQuotaUiState({ viewMode: 'ledger', showEmails: false });
+    writeQuotaUiState({ tab: 'codex' });
+    expect(readQuotaUiState()).toEqual({
+      tab: 'codex',
+      sortMode: undefined,
+      viewMode: 'ledger',
+      showEmails: false,
+    });
+    writeQuotaUiState({ viewMode: 'cards', showEmails: true });
+    expect(readQuotaUiState()?.tab).toBe('codex');
+    expect(readQuotaUiState()?.showEmails).toBe(true);
+  });
+  test('rejects malformed layout and privacy preferences', () => {
+    storage.setItem(KEY, JSON.stringify({ viewMode: 'anything', showEmails: 'yes' }));
+    expect(readQuotaUiState()).toEqual({ tab: undefined, sortMode: undefined });
+  });
   test('round-trips both preferences', () => {
     writeQuotaUiState({ tab: 'codex', sortMode: 'soonest' });
     expect(readQuotaUiState()).toEqual({ tab: 'codex', sortMode: 'soonest' });
